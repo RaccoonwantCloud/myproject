@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+	<h1>사용자 등록</h1>
+	<p>세로운 사용자를 등록합니다.</p>
+	
+	<table id ="TBL_NewUser" border="1">
+	<tr>
+	<td>USER ID</td>
+	<td><input type="text"placeholder="유저 아이디"></td>
+	<!-- <td><input th:text="${member.USER_ID}" type="text"placeholder="유저 아이디"></td> -->
+	</tr>
+	
+	<tr>
+	<td>DPET NO</td>
+	<td><input type="text"placeholder="유저 부서번호"></td>
+	</tr>
+	
+	<tr>
+	<td>NAME</td>
+	<td><input type="text"placeholder="유저 이름"></td>
+	</tr>
+	
+	<tr>
+	<td>JBGD</td>
+	<td><input type="text"placeholder="직급"></td>
+	</tr>
+	
+	<tr>
+	<td>TELNO</td>
+	<td><input type="text"placeholder="전화번호"></td>
+	</tr>
+	
+	<tr>
+	<td>ADDR</td>
+	<td><input type="text"placeholder="주소"></td>
+	</tr>
+	
+</table>
+<form action="sendInfo" method="get">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">등록</button>
+</form>
+</div>
+</body>
+</html>

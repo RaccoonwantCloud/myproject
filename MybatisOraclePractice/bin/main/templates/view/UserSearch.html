@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+table {
+	width: 100%;
+	border: 1px solid #444444;
+	text-align: center;
+}
+
+th, td {
+	border: 1px solid #444444;
+}
+
+button {
+	width: 10%;
+	border: 1px solid #444444;
+	text-align: center;
+}
+</style>
+
+
+</head>
+<body>
+	<!-- 검색 -->
+	<h1>검색된 사용자</h1>
+	<table id="tbl1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>부서번호</th>
+				<th>사원명</th>
+				<th>직급</th>
+				<th>전화번호</th>
+				<th>주소</th>
+			</tr>
+		</thead>
+
+		<tr th:object="${member}">
+			<th><span th:text="${member.USER_ID}"></span></th>
+			<th><span th:text="${member.USER_DEPT_NO}"></span></th>
+			<th><span th:text="${member.USER_NM}"></span></th>
+			<th><span th:text="${member.USER_JBGD}"></span></th>
+			<th><span th:text="${member.USER_TELNO}"></span></th>
+			<th><span th:text="${member.USER_ADDR}"></span></th>
+		</tr>
+
+
+	</table>
+
+	<table id="TBL_Hobby" border="1">
+		<thead>
+		
+
+		</thead>
+
+		<tbody>
+			<tr>
+				<th>취미</th>
+				<th th:each="st : ${StrArray}" th:text="${st}">취미</th>
+			</tr>
+			
+			
+			
+		</tbody>
+</table>
+		<!-- 
+			
+	<div>
+				<form action="UserUpdate" method="get" >
+				<input name="USER_ID" type="text" placeholder="수정을 원하는 회원 검색">
+					<button id="Update_btn">유저수정</button>				
+				</form>
+	</div>
+	
+	<div>
+				<form action="UserDelete" method="get" >
+				<input name="USER_ID" type="text" placeholder="삭제를 원하는 회원 검색">
+					<button id="Update_btn">유저삭제</button>				
+				</form>
+	</div>
+		
+ -->
+
+
+		<p>
+</body>
+</html>

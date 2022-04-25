@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+table {
+	width: 100%;
+	border: 1px solid #444444;
+	text-align: center;
+}
+
+th, td {
+	border: 1px solid #444444;
+}
+
+button {
+	width: 10%;
+	border: 1px solid #444444;
+	text-align: center;
+}
+</style>
+
+
+</head>
+<body>
+	<!-- 검색 -->
+	<h1>검색</h1>
+	<form action="/user/search" method="GET">
+		<div>
+			<input name="keyword" type="text" placeholder="검색어를 입력해주세요">
+		</div>
+		<button>검색하기</button>
+	</form>
+	<table id="tbl1">
+		<tr>
+			<th>ID</th>
+			<th>부서번호</th>
+			<th>사원명</th>
+			<th>직급</th>
+			<th>전화번호</th>
+			<th>주소</th>
+		</tr>
+
+		<tr>
+			<th></th>
+			<th></th>
+			<th><span th:text="${keyword}"></span></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
+
+	</table>
+
+	<table id="tbl2">
+		<tr>
+			<th>
+				<form action="/go/UserRegister" method="GET">
+					<button id = "Rig_btn">유저등록</button>
+				</form>
+			</th>
+
+			<th>
+				<form action="/go/UserMap" method="GET">
+					<button id="Map_btn">조직도</button>
+				</form>
+			</th>
+
+		</tr>
+
+
+	</table>
+
+
+
+
+
+
+	<p>
+</body>
+</html>

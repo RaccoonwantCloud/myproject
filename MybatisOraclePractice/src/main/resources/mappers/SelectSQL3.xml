@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.devandy.web.dao.MemberHobbyDAO">
+	<select id="selectAll" resultType="MemberHobby">
+		SELECT *
+		FROM TBL_USER_HOB
+	</select>
+	
+	<select id="selectById" parameterType="String" resultType="MemberHobby">
+		SELECT *
+		FROM TBL_USER_HOB
+		WHERE USER_HOB_ID = #{USER_ID}
+	</select>	
+	
+	<select id="selectByNo" parameterType="Long" resultType="MemberHobby">
+		SELECT *
+		FROM TBL_USER_HOB
+		WHERE USER_HOB_NO = #{USER_HOB_NO}
+	</select>	
+	
+	
+	
+	<select id="selectUSERHOBID" parameterType="String" resultType="MemberHobby">
+		SELECT *
+		FROM TBL_USER_HOB
+		WHERE USER_HOB_ID = #{USER_HOB_ID}
+	</select>
+	
+	<insert id="insert" parameterType="MemberHobby">
+		INSERT INTO TBL_USER_HOB(USER_HOB_ID, USER_HOB_NO)
+		VALUES(#{USER_HOB_ID}, #{USER_HOB_NO})
+	</insert>
+
+	<update id="update" parameterType="MemberHobby">
+		UPDATE TBL_USER_HOB
+		SET USER_HOB_ID = #{USER_HOB_ID},
+			USER_HOB_NO = #{USER_HOB_NO}
+		WHERE USER_HOB_NO = #{USER_HOB_NO}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		DELETE TBL_USER_HOB
+		WHERE USER_HOB_ID = #{USER_ID}
+	</delete>
+
+
+
+</mapper>
+

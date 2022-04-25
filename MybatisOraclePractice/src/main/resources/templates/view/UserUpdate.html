@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/index2.css}" rel="stylesheet" type="text/css">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1>사용자 업데이트</h1>
+
+		<table border="1" id="tbl1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>부서번호</th>
+					<th>사원명</th>
+					<th>직급</th>
+					<th>전화번호</th>
+					<th>주소</th>
+				</tr>
+				<tr>
+				</tr>
+
+			</thead>
+			<tbody>
+
+			</tbody>
+
+			<tr th:object="${member}">
+				<th><span th:text="${member.USER_ID}"></span></th>
+				<th><span th:text="${member.USER_DEPT_NO}"></span></th>
+				<th><span th:text="${member.USER_NM}"></span></th>
+				<th><span th:text="${member.USER_JBGD}"></span></th>
+				<th><span th:text="${member.USER_TELNO}"></span></th>
+				<th><span th:text="${member.USER_ADDR}"></span></th>
+			</tr>
+			<!-- 
+			<tr th:each="hob,index : ${hoblist}">
+				<td th:text="${수정hob.HOB_NO}">취미번호</td>
+				<td th:text="${hob.HOB_NM}">취미이름</td>
+			</tr>
+			-->
+			<tr>
+				<th>취미</th>
+				<th th:each="st : ${StrArray}" th:text="${st}">취미</th>
+			</tr>
+
+		</table>
+
+		<table>
+			<thead>
+
+			</thead>
+		</table>
+
+		<form action="UserUpdateAction">
+			<h3 align="center">NEW 유저 테이블</h3>
+			<table id="TBL_NewUser" border="1">
+				<thead>
+					<tr>
+						<th>아이디</th>
+						<th>번호</th>
+						<th>이름</th>
+						<th>직급</th>
+						<th>전화번호</th>
+						<th>주소</th>
+					</tr>
+				</thead>
+				<tr>
+
+					<th><input type="text" name="USER_ID"
+						th:value="${member.USER_ID}"></th>
+					<!-- 
+					<th><input type="text" name="USER_DEPT_NO" value=""></th>
+					 -->
+					<td><select name="USER_DEPT_NO">
+							<th:block th:each="dp : ${DList}">
+								<option th:text="${dp.DEPT_NO}">100</option>
+							</th:block>
+					</select></td>
+
+
+					<th><input type="text" name="USER_NM" value=""></th>
+					<td><select name="USER_JBGD">
+								<option>회장</option>
+								<option>전무</option>
+								<option>상무</option>
+								<option>이사</option>
+								<option>부장</option>
+								<option>차장</option>
+								<option>과장</option>
+								<option>대리</option>
+								<option>주임</option>
+								<option>사원</option>
+					</select></td>
+
+
+					<th><input type="text" name="USER_TELNO" value=""></th>
+					<th><input type="text" name="USER_ADDR" value=""></th>
+				</tr>
+			</table>
+
+			<table id="TBL_Hobby" border="1">
+				<thead>
+					<tr>
+						<th>활동여부</th>
+						<th>취미번호</th>
+						<th>취미이름</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+					<tr th:each="hob,index : ${hoblist}">
+						<td><input type="checkbox" name="HOB_NO"
+							th:value="${hob.HOB_NO}"> <input type="hidden"
+							name="_HOB_NO" value="on" /></td>
+						<td th:text="${hob.HOB_NO}">취미번호</td>
+						<td th:text="${hob.HOB_NM}">취미이름</td>
+					</tr>
+
+				</tbody>
+
+
+			</table>
+
+
+
+			<input type="submit" value="사용자 업데이트">
+		</form>
+
+
+
+
+
+	</div>
+</body>
+</html>
